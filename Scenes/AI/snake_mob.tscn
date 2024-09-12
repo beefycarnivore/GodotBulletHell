@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://drg1wnh8f8pxk"]
 
 [ext_resource type="Script" path="res://Scripts/AI/snake_mob.gd" id="1_pb8n2"]
-[ext_resource type="Texture2D" uid="uid://1svsl4lnwgpx" path="res://Bullet-Hell-Assets/monster sprites/guardian_serpent_old.png" id="2_2qx58"]
+[ext_resource type="Texture2D" uid="uid://duycblwyqtusm" path="res://Bullet-Hell-Assets/monster sprites/cyclops_new.png" id="2_iikal"]
 [ext_resource type="Texture2D" uid="uid://c4crd6whqe3cp" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_0.png" id="3_3xadb"]
 [ext_resource type="Texture2D" uid="uid://qivbx760epga" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_1.png" id="4_sxx7k"]
 [ext_resource type="Texture2D" uid="uid://crc2ggcw5gdgl" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_2.png" id="5_5eq4f"]
@@ -50,7 +50,7 @@ position = Vector2(0.5, 10.5)
 shape = SubResource("RectangleShape2D_2rym7")
 
 [node name="GuardianSerpentOld" type="Sprite2D" parent="."]
-texture = ExtResource("2_2qx58")
+texture = ExtResource("2_iikal")
 metadata/_edit_lock_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
