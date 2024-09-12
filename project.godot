@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="Bullet Hell Tutorial Project"
-run/main_scene="res://Scenes/world.tscn"
+run/main_scene="res://Scenes/start_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Bullet-Hell-Assets/BBG Logo.png"
 config/icon="res://icon.svg"
-boot_splash/minimum_display_time=3000
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
@@ -26,6 +26,7 @@ Game="*res://Scripts/Player/Game.gd"
 
 window/size/viewport_width=576
 window/size/viewport_height=324
+window/size/mode=3
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"

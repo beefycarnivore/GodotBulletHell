@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt1wd48ycvnuv"]
+[gd_scene load_steps=5 format=3 uid="uid://3lq41skw0x50"]
 
-[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_23ml0"]
-[ext_resource type="Texture2D" uid="uid://dgtqdixnvovxt" path="res://Bullet-Hell-Assets/Game_Over.png" id="2_r112l"]
-[ext_resource type="AudioStream" uid="uid://boyynh286djdm" path="res://Bullet-Hell-Assets/Audio/explosion.wav" id="3_jwwa1"]
-[ext_resource type="AudioStream" uid="uid://bentxho6m8wn7" path="res://Bullet-Hell-Assets/Audio/click.wav" id="4_v5hqb"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_wator"]
+[ext_resource type="Texture2D" uid="uid://dgtqdixnvovxt" path="res://Bullet-Hell-Assets/Game_Over.png" id="2_3lojx"]
+[ext_resource type="AudioStream" uid="uid://boyynh286djdm" path="res://Bullet-Hell-Assets/Audio/explosion.wav" id="3_exs3k"]
+[ext_resource type="AudioStream" uid="uid://bentxho6m8wn7" path="res://Bullet-Hell-Assets/Audio/click.wav" id="4_vmhkn"]
 
 [node name="GameOver" type="Node2D"]
-script = ExtResource("1_23ml0")
+script = ExtResource("1_wator")
 
 [node name="GameOver" type="Label" parent="."]
 visible = false
@@ -18,6 +18,7 @@ text = "Game Over"
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="."]
+visible = false
 offset_top = 89.0
 offset_right = 575.0
 offset_bottom = 120.0
@@ -31,7 +32,7 @@ offset_right = 268.0
 offset_bottom = 160.0
 scale = Vector2(2.68196, 1.90796)
 tooltip_text = "Do it!"
-text = "Retry?"
+text = "Start"
 expand_icon = true
 
 [node name="Quit" type="Button" parent="."]
@@ -40,21 +41,21 @@ offset_top = 191.0
 offset_right = 267.0
 offset_bottom = 222.0
 scale = Vector2(2.68196, 1.90796)
-tooltip_text = "Baby!"
-text = "Quit?"
+tooltip_text = "Sissy!"
+text = "Exit"
 expand_icon = true
 
 [node name="GameOver2" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(285, 164)
 scale = Vector2(0.322266, 0.322266)
-texture = ExtResource("2_r112l")
+texture = ExtResource("2_3lojx")
 
 [node name="End" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_jwwa1")
+stream = ExtResource("3_exs3k")
 
 [node name="Blip" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_v5hqb")
+stream = ExtResource("4_vmhkn")
 
 [connection signal="mouse_entered" from="Retry" to="." method="_on_retry_mouse_entered"]
 [connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
