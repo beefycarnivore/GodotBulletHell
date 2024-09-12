@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt1wd48ycvnuv"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_23ml0"]
+[ext_resource type="Texture2D" uid="uid://dgtqdixnvovxt" path="res://Bullet-Hell-Assets/Game_Over.png" id="2_r112l"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_23ml0")
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+offset_top = 46.0
+offset_right = 574.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 30
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+offset_top = 89.0
+offset_right = 575.0
+offset_bottom = 120.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="Button" parent="."]
+offset_left = 211.0
+offset_top = 129.0
+offset_right = 268.0
+offset_bottom = 160.0
+scale = Vector2(2.68196, 1.90796)
+text = "Retry?"
+
+[node name="GameOver2" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(285, 164)
+scale = Vector2(0.322266, 0.322266)
+texture = ExtResource("2_r112l")
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
