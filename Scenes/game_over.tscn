@@ -30,6 +30,14 @@ offset_bottom = 160.0
 scale = Vector2(2.68196, 1.90796)
 text = "Retry?"
 
+[node name="Quit" type="Button" parent="."]
+offset_left = 210.0
+offset_top = 191.0
+offset_right = 267.0
+offset_bottom = 222.0
+scale = Vector2(2.68196, 1.90796)
+text = "Quit?"
+
 [node name="GameOver2" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(285, 164)
@@ -37,3 +45,4 @@ scale = Vector2(0.322266, 0.322266)
 texture = ExtResource("2_r112l")
 
 [connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
