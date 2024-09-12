@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt1wd48ycvnuv"]
+[gd_scene load_steps=5 format=3 uid="uid://bt1wd48ycvnuv"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_23ml0"]
 [ext_resource type="Texture2D" uid="uid://dgtqdixnvovxt" path="res://Bullet-Hell-Assets/Game_Over.png" id="2_r112l"]
+[ext_resource type="AudioStream" uid="uid://boyynh286djdm" path="res://Bullet-Hell-Assets/Audio/explosion.wav" id="3_jwwa1"]
+[ext_resource type="AudioStream" uid="uid://bwunqbaqdpi4y" path="res://Bullet-Hell-Assets/Audio/blipSelect.wav" id="4_1gs6d"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_23ml0")
@@ -28,7 +30,9 @@ offset_top = 129.0
 offset_right = 268.0
 offset_bottom = 160.0
 scale = Vector2(2.68196, 1.90796)
+tooltip_text = "Do it!"
 text = "Retry?"
+expand_icon = true
 
 [node name="Quit" type="Button" parent="."]
 offset_left = 210.0
@@ -36,7 +40,9 @@ offset_top = 191.0
 offset_right = 267.0
 offset_bottom = 222.0
 scale = Vector2(2.68196, 1.90796)
+tooltip_text = "Sissy!"
 text = "Quit?"
+expand_icon = true
 
 [node name="GameOver2" type="Sprite2D" parent="."]
 z_index = -2
@@ -44,5 +50,13 @@ position = Vector2(285, 164)
 scale = Vector2(0.322266, 0.322266)
 texture = ExtResource("2_r112l")
 
+[node name="End" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jwwa1")
+
+[node name="Blip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1gs6d")
+
+[connection signal="mouse_entered" from="Retry" to="." method="_on_retry_mouse_entered"]
 [connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

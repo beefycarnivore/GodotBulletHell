@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkja18tequr5y"]
+[gd_scene load_steps=7 format=3 uid="uid://bkja18tequr5y"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_eyri7"]
 [ext_resource type="Texture2D" uid="uid://dh3p10s2mpu5o" path="res://Bullet-Hell-Assets/skibidi.png" id="2_17mi5"]
 [ext_resource type="Script" path="res://Scripts/Player/BulletPool.gd" id="3_lxeva"]
+[ext_resource type="AudioStream" uid="uid://c82yx52opou4c" path="res://Bullet-Hell-Assets/Audio/Ouch 4.wav" id="4_8gj7f"]
+[ext_resource type="AudioStream" uid="uid://b3027vtwvidp4" path="res://Bullet-Hell-Assets/Audio/laserShoot.wav" id="6_cnm00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svdx7"]
 size = Vector2(14, 25)
@@ -30,5 +32,11 @@ position = Vector2(0, 8)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
+
+[node name="Oof" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8gj7f")
+
+[node name="Pewpew" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cnm00")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

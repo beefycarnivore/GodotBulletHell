@@ -5,6 +5,7 @@ var direction: Vector2 = Vector2(0,1)
 var bulletRate: int = 30 #firing rate in bullets per minute
 @onready var bullet_pool = get_node("Bullets")
 @onready var timer: Timer = get_node("Timer")
+@onready var music = $"../Music"
 func _physics_process(delta: float) -> void:
 	var inputDir: Vector2 = Vector2(
 		Input.get_axis("ui_left", "ui_right"),
@@ -42,7 +43,9 @@ func _physics_process(delta: float) -> void:
 	velocity = inputDir * speed
 	move_and_slide()
 	if Game.playerHP < 1:
+		music.stop()
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		
 	
 		
 
@@ -52,3 +55,8 @@ func _on_timer_timeout() -> void:
 		bulletTemp.global_position = get_node("Spawn Point").global_position
 		bulletTemp.velocity = direction *100
 		bulletTemp.show()
+		#$Pewpew.play()
+
+
+#func _on_its_hopeless_finished() -> void:
+	

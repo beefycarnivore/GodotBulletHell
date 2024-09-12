@@ -5,6 +5,7 @@ var isAlive: bool = true
 var mob: bool = true
 var health: int = 5
 @onready var player: Node = get_node("../../Player")
+@onready var oof: Node = get_node("../../Player/Oof")
 @onready var sprite: Sprite2D = get_node("GuardianSerpentOld")
 @onready var bar: ProgressBar = get_node("ProgressBar")
 @onready var anim: AnimatedSprite2D = get_node("Anim")
@@ -55,7 +56,7 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 	if "Player" in body.name:
 		if visible and body.visible:
 			Game.playerHP -= 1
-			
+			oof.play()
 
 
 

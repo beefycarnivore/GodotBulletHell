@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://c43sy75octlxr"]
+[gd_scene load_steps=30 format=4 uid="uid://c43sy75octlxr"]
 
 [ext_resource type="Texture2D" uid="uid://cxxj7ffl55gue" path="res://Bullet-Hell-Assets/floor tiles/cobble_blood_1_old.png" id="1_al0xh"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_trlrt"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Scripts/player_hp.gd" id="13_2gcgc"]
 [ext_resource type="Script" path="res://Scripts/score.gd" id="14_ps0sx"]
 [ext_resource type="Script" path="res://Scripts/TimeSurvived.gd" id="16_nhfig"]
+[ext_resource type="AudioStream" uid="uid://ixxgfx2146fa" path="res://Bullet-Hell-Assets/Audio/05-dethklok-go_forth_and_die.mp3" id="17_pvhxw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_djvyi"]
 texture = ExtResource("1_al0xh")
@@ -107,7 +108,6 @@ script = ExtResource("11_t2jj7")
 texture = ExtResource("12_idtwb")
 
 [node name="Timer" type="Timer" parent="Portal"]
-wait_time = 10.0
 autostart = true
 
 [node name="Portal2" type="Node2D" parent="."]
@@ -118,7 +118,7 @@ script = ExtResource("11_t2jj7")
 texture = ExtResource("12_idtwb")
 
 [node name="Timer" type="Timer" parent="Portal2"]
-wait_time = 10.0
+wait_time = 2.0
 autostart = true
 
 [node name="Portal3" type="Node2D" parent="."]
@@ -129,7 +129,7 @@ script = ExtResource("11_t2jj7")
 texture = ExtResource("12_idtwb")
 
 [node name="Timer" type="Timer" parent="Portal3"]
-wait_time = 10.0
+wait_time = 3.0
 autostart = true
 
 [node name="Portal4" type="Node2D" parent="."]
@@ -140,7 +140,7 @@ script = ExtResource("11_t2jj7")
 texture = ExtResource("12_idtwb")
 
 [node name="Timer" type="Timer" parent="Portal4"]
-wait_time = 10.0
+wait_time = 4.0
 autostart = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
@@ -175,6 +175,10 @@ script = ExtResource("16_nhfig")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_pvhxw")
+volume_db = -6.0
 
 [connection signal="timeout" from="Portal/Timer" to="Portal" method="_on_timer_timeout"]
 [connection signal="timeout" from="Portal2/Timer" to="Portal2" method="_on_timer_timeout"]

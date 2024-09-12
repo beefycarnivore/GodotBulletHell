@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	finalScore.text = "Your Final Score is: " + str(Game.score)
-
+	$End.play()
 
 
 func _on_retry_pressed() -> void:
@@ -16,3 +16,13 @@ func _on_retry_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_retry_mouse_entered() -> void:
+	$Blip.play()
+	
+
+
+func _on_quit_mouse_entered() -> void:
+	$Blip.play()
+	
