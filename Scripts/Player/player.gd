@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed: int = 125
 var direction: Vector2 = Vector2(0,1)
-var bulletRate: int = 30 #firing rate in bullets per minute
+var bulletRate: int = 45 #firing rate in bullets per minute
 @onready var bullet_pool = get_node("Bullets")
 @onready var timer: Timer = get_node("Timer")
 @onready var music = $"../Music"
@@ -53,9 +53,9 @@ func _physics_process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 		var bulletTemp: Node = bullet_pool.get_bullet()
 		bulletTemp.global_position = get_node("Spawn Point").global_position
-		bulletTemp.velocity = direction *150
+		bulletTemp.velocity = direction *200
 		bulletTemp.show()
-		#$Pewpew.play()
+		$Pewpew.play()
 
 
 #func _on_its_hopeless_finished() -> void:

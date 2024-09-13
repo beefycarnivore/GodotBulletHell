@@ -90,10 +90,10 @@ tile_set = SubResource("TileSet_ai2p4")
 rendering_quadrant_size = 32
 
 [node name="Player" parent="." instance=ExtResource("10_2yavn")]
-position = Vector2(72, 45)
+position = Vector2(603, 398)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
 limit_right = 1220
@@ -102,8 +102,9 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Portal" type="Node2D" parent="."]
-position = Vector2(229, 189)
+position = Vector2(250, 116)
 script = ExtResource("11_t2jj7")
+metadata/_edit_group_ = true
 
 [node name="Spawner" type="Sprite2D" parent="Portal"]
 texture = ExtResource("12_idtwb")
@@ -112,8 +113,9 @@ texture = ExtResource("12_idtwb")
 autostart = true
 
 [node name="Portal2" type="Node2D" parent="."]
-position = Vector2(400, 94)
+position = Vector2(933, 117)
 script = ExtResource("11_t2jj7")
+metadata/_edit_group_ = true
 
 [node name="Spawner" type="Sprite2D" parent="Portal2"]
 texture = ExtResource("12_idtwb")
@@ -123,8 +125,9 @@ wait_time = 2.0
 autostart = true
 
 [node name="Portal3" type="Node2D" parent="."]
-position = Vector2(366, 243)
+position = Vector2(211, 628)
 script = ExtResource("11_t2jj7")
+metadata/_edit_group_ = true
 
 [node name="Spawner" type="Sprite2D" parent="Portal3"]
 texture = ExtResource("12_idtwb")
@@ -134,8 +137,9 @@ wait_time = 3.0
 autostart = true
 
 [node name="Portal4" type="Node2D" parent="."]
-position = Vector2(136, 317)
+position = Vector2(981, 640)
 script = ExtResource("11_t2jj7")
+metadata/_edit_group_ = true
 
 [node name="Spawner" type="Sprite2D" parent="Portal4"]
 texture = ExtResource("12_idtwb")
@@ -147,32 +151,36 @@ autostart = true
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="PlayerHP" type="ProgressBar" parent="GUI"]
-offset_left = 463.0
-offset_top = 12.0
-offset_right = 502.0
-offset_bottom = 18.0
+offset_left = 1723.0
+offset_top = 37.0
+offset_right = 1762.0
+offset_bottom = 43.0
 scale = Vector2(2.39603, 2.02752)
 theme_override_styles/background = SubResource("StyleBoxFlat_2su0o")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ou4k2")
 value = 50.0
 show_percentage = false
 script = ExtResource("13_2gcgc")
+metadata/_edit_use_anchors_ = true
 
 [node name="Score" type="Label" parent="GUI"]
-offset_left = 463.0
-offset_top = 25.0
-offset_right = 511.0
-offset_bottom = 48.0
+offset_left = 1712.0
+offset_top = 55.0
+offset_right = 1778.0
+offset_bottom = 93.0
 text = "Score:"
 script = ExtResource("14_ps0sx")
+metadata/_edit_use_anchors_ = true
 
 [node name="TimeSurvived" type="Label" parent="GUI"]
-offset_left = 250.0
-offset_top = 11.0
-offset_right = 290.0
-offset_bottom = 34.0
+offset_left = 1357.0
+offset_top = 56.0
+offset_right = 1517.0
+offset_bottom = 94.0
 text = "Time Survived: "
+horizontal_alignment = 1
 script = ExtResource("16_nhfig")
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

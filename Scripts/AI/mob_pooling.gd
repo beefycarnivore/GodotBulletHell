@@ -14,6 +14,9 @@ func _ready() -> void:
 		mob_pool.append(mob)
 		add_child(mob)
 
+func _process(delta: float) -> void:
+	if (get_parent().timeSurvived <= 9) and (get_parent().timeSurvived >= 1):
+		timer.wait_time = 10 - roundi(get_parent().timeSurvived/2)
 
 	
 func get_mob()-> Node2D:
@@ -28,17 +31,13 @@ func get_mob()-> Node2D:
 	return new_mob
 	
 func reset_mob(mob: Node)-> void:
-	mob.global_position = Vector2(-2000, -2000)
+	mob.global_position = Vector2(-1000, -1000)
 	mob.get_node("CollisionShape2D").disabled = false
-	mob.isAlive = false
+	mob.isAlive = true
 	mob.hide()
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if (get_parent().timeSurvived <= 9) and (get_parent().timeSurvived > 1):
-		timer.wait_time = 10 - roundi(get_parent().timeSurvived/2)
-		print("Wait time: ", timer.wait_time)
 
 func _on_timer_timeout() -> void:
 	var mobTemp: Node = get_mob()

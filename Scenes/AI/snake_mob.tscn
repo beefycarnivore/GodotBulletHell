@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drg1wnh8f8pxk"]
+[gd_scene load_steps=14 format=3 uid="uid://drg1wnh8f8pxk"]
 
 [ext_resource type="Script" path="res://Scripts/AI/snake_mob.gd" id="1_pb8n2"]
 [ext_resource type="Texture2D" uid="uid://duycblwyqtusm" path="res://Bullet-Hell-Assets/monster sprites/cyclops_new.png" id="2_iikal"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://crc2ggcw5gdgl" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_2.png" id="5_5eq4f"]
 [ext_resource type="Texture2D" uid="uid://3aack614yvym" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_3.png" id="6_jl7cu"]
 [ext_resource type="Script" path="res://Scripts/AI/AIBulletPool.gd" id="7_1jeya"]
+[ext_resource type="AudioStream" uid="uid://bqs4tkjm73d2a" path="res://Bullet-Hell-Assets/Audio/death.wav" id="8_egtad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rym7"]
 size = Vector2(27, 9)
@@ -85,6 +86,10 @@ position = Vector2(-10, -11)
 
 [node name="ShootBullet" type="Timer" parent="."]
 autostart = true
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_egtad")
+volume_db = -4.356
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="timeout" from="ShootBullet" to="." method="_on_shoot_bullet_timeout"]

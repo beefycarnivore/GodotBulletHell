@@ -1,63 +1,67 @@
 [gd_scene load_steps=5 format=3 uid="uid://3lq41skw0x50"]
 
-[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_wator"]
-[ext_resource type="Texture2D" uid="uid://dgtqdixnvovxt" path="res://Bullet-Hell-Assets/Game_Over.png" id="2_3lojx"]
-[ext_resource type="AudioStream" uid="uid://boyynh286djdm" path="res://Bullet-Hell-Assets/Audio/explosion.wav" id="3_exs3k"]
+[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_ywa57"]
+[ext_resource type="Texture2D" uid="uid://llpvxvepgrlc" path="res://Bullet-Hell-Assets/Blank.png" id="2_gr88c"]
+[ext_resource type="AudioStream" uid="uid://e5x4yjkhgahp" path="res://Bullet-Hell-Assets/Audio/startup.wav" id="3_tmdm5"]
 [ext_resource type="AudioStream" uid="uid://bentxho6m8wn7" path="res://Bullet-Hell-Assets/Audio/click.wav" id="4_vmhkn"]
 
 [node name="GameOver" type="Node2D"]
-script = ExtResource("1_wator")
+script = ExtResource("1_ywa57")
 
-[node name="GameOver" type="Label" parent="."]
-visible = false
-offset_top = 46.0
-offset_right = 574.0
-offset_bottom = 92.0
-theme_override_font_sizes/font_size = 30
-text = "Game Over"
-horizontal_alignment = 1
-
-[node name="Score" type="Label" parent="."]
-visible = false
-offset_top = 89.0
-offset_right = 575.0
-offset_bottom = 120.0
+[node name="HighScore" type="Label" parent="."]
+offset_left = 714.0
+offset_top = 71.0
+offset_right = 1289.0
+offset_bottom = 121.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Retry" type="Button" parent="."]
-offset_left = 211.0
-offset_top = 129.0
-offset_right = 268.0
-offset_bottom = 160.0
-scale = Vector2(2.68196, 1.90796)
-tooltip_text = "Do it!"
-text = "Start"
-expand_icon = true
-
-[node name="Quit" type="Button" parent="."]
-offset_left = 210.0
-offset_top = 191.0
-offset_right = 267.0
-offset_bottom = 222.0
-scale = Vector2(2.68196, 1.90796)
-tooltip_text = "Sissy!"
-text = "Exit"
-expand_icon = true
-
 [node name="GameOver2" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(285, 164)
-scale = Vector2(0.322266, 0.322266)
-texture = ExtResource("2_3lojx")
+position = Vector2(1001.17, 572.097)
+scale = Vector2(1.11504, 1.11504)
+texture = ExtResource("2_gr88c")
 
-[node name="End" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_exs3k")
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tmdm5")
 
 [node name="Blip" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vmhkn")
 
-[connection signal="mouse_entered" from="Retry" to="." method="_on_retry_mouse_entered"]
-[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
-[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -230.0
+offset_right = 250.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Retry" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Do it!"
+text = "Start"
+expand_icon = true
+
+[node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Sissy!"
+text = "Exit"
+expand_icon = true
+
+[connection signal="focus_entered" from="CanvasLayer/VBoxContainer/Retry" to="." method="_on_retry_focus_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/Retry" to="." method="_on_retry_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="focus_entered" from="CanvasLayer/VBoxContainer/Quit" to="." method="_on_quit_focus_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

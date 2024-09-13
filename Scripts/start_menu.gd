@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var finalScore: Label = get_node("Score")
+@onready var highScore: Label = get_node("HighScore")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	finalScore.text = "Your Final Score is: " + str(Game.score)
-	$End.play()
+	highScore.text = "Your High Score is: " + str(Game.score)
+	$Start.play()
 	$CanvasLayer/VBoxContainer/Retry.grab_focus()
 
 func _on_retry_pressed() -> void:
@@ -26,3 +26,11 @@ func _on_retry_mouse_entered() -> void:
 func _on_quit_mouse_entered() -> void:
 	$Blip.play()
 	
+
+
+func _on_retry_focus_entered() -> void:
+	$Blip.play()
+
+
+func _on_quit_focus_entered() -> void:
+	$Blip.play()

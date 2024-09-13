@@ -47,6 +47,7 @@ func reset_mob(body: Node)-> void:
 	else:
 		isAlive = false
 		anim.play("Death")
+		$DeathSound.play()
 		await anim.animation_finished
 		get_parent().reset_mob(body)
 		Game.score += 1
